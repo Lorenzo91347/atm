@@ -7,11 +7,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-// Initialize balance if not already set
-if (!isset($_SESSION['balance'])) {
-    $_SESSION['balance'] = 1000; // Starting balance
-}
-
 $message = "";
 
 // Handle form submission
@@ -48,60 +43,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../atm/styles/main.css">
     <title>Simple ATM</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .atm-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .atm-container input[type="number"] {
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .atm-container input[type="submit"] {
-            padding: 10px;
-            width: 48%;
-            margin: 2px 1%;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .atm-container input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .balance {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .message {
-            color: green;
-            margin-bottom: 10px;
-        }
-
-        .logout {
-            margin-top: 20px;
-            font-size: 0.9em;
-        }
-    </style>
 </head>
 
 <body>
